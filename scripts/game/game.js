@@ -16,6 +16,10 @@ function Game() {
 		return this.frames.points();
 	};
 
+	this.roundPoints = function() {
+		return this.frames.roundPoints();
+	};
+
 	this.roll = function (array){
 		var Class = null;
 
@@ -30,9 +34,9 @@ function Game() {
 
 		if (this.frames.isLastRound()) {
 			/* LAST ROUND */
-			/* TODO: Falta chequear que esten bien los 3 tiros */
-			
-			Class = LastRound;
+			if ( (fst + snd < 10 && trd === 0 ) || fst + snd >= 10) {
+				Class = LastRound;
+			}
 		}	
 		else if (array.length == 3) {
 				throw new Error("Wrong number of arguments. It's not the last round.");

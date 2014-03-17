@@ -48,5 +48,11 @@ module.exports = function Frames() {
 		return this.nextRollValue(actualPos) + (this.nextRound(actualPos).hasTwoBalls ? this.nextRound(actualPos).snd : this.nextRollValue(actualPos+1) );
 	};
 
+	this.roundPoints = function () {
+		return _.map(this.rounds, function(elem) {
+			return elem.points();
+		});
+	};
+
 };
 
